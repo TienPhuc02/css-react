@@ -4,7 +4,7 @@ const App = () => {
   return (
     <div>
       <Button>Primary</Button>
-      <Button className={`button--secondary`}>Secondary</Button>
+      <Button secondary>Secondary</Button>
     </div>
   );
 };
