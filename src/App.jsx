@@ -1,10 +1,9 @@
-import Button from "./Components/button/Button";
+import CardList from "./Components/card/CardList";
 
 const App = () => {
   return (
     <div>
-      <Button>Primary</Button>
-      <Button secondary>Secondary</Button>
+      <CardList />
     </div>
   );
 };
