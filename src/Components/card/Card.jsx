@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 // const StylesCard=styled.tag``
 const StylesCard = styled.div`
   /* padding: 20px; */
@@ -28,7 +28,7 @@ const ContentCardStyle = styled.div`
   z-index: 10;
   left: 20px;
 `;
-const ContentTCardTopStyles = styled.div`
+const ContentCardTopStyles = styled.div`
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
@@ -58,16 +58,16 @@ const ContentRatingSpanStyles = styled.span`
   font-family: "Poppins", sans-serif;
   font-weight: 300;
 `;
-const ContentTCardBottomStyles = styled.div`
+const ContentCardBottomStyles = styled.div`
   display: flex;
   justify-content: space-between;
   .title {
     color: #000000;
     font-family: "Poppins", sans-serif;
     font-weight: 500px;
-    font-style: 18px;
+    font-size: 18px;
   }
-  .number {
+  /* .number {
     background: linear-gradient(
       86.88deg,
       #7d6aff 1.38%,
@@ -79,16 +79,45 @@ const ContentTCardBottomStyles = styled.div`
     font-family: "Poppins", sans-serif;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-  }
+    ${(props) =>
+    props.secondary &&
+    css`
+      background: linear-gradient(86.88deg, #20e3b2, #2cccff);
+    `};
+  } */
 `;
-const Card = () => {
+const NumberCardBottomStyles = styled.span`
+  font-weight: 700;
+  font-size: 18px;
+  font-family: "Poppins", sans-serif;
+  ${(props) =>
+    props.secondary &&
+    css`
+      background: linear-gradient(86.88deg, #20e3b2, #2cccff);
+    `};
+  ${(props) =>
+    !props.secondary &&
+    css`
+      background: linear-gradient(
+        86.88deg,
+        #7d6aff 1.38%,
+        #ffb86c 64.35%,
+        #fc2872 119.91%
+      );
+    `};
+  ${(props) => props.fontSize || "18px"};
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+`;
+const Card = (props) => {
+  console.log(props);
   return (
     <StylesCard>
       <CardImageStyles>
         <ImageStyles src="/img1.png" alt="" />
       </CardImageStyles>
       <ContentCardStyle>
-        <ContentTCardTopStyles>
+        <ContentCardTopStyles>
           <ContentAvatarStyles>
             <ContentAvatarImgStyles src="/img11.png" alt="" />
             <ContentAvatarSpanStyles>@zndrson</ContentAvatarSpanStyles>
@@ -97,11 +126,13 @@ const Card = () => {
             <ContentRatingImgStyles src="/img12.png" alt="" />
             <ContentRatingSpanStyles>256</ContentRatingSpanStyles>
           </ContentRatingStyles>
-        </ContentTCardTopStyles>
-        <ContentTCardBottomStyles>
+        </ContentCardTopStyles>
+        <ContentCardBottomStyles>
           <span className="title">Cosmic Perspective</span>
-          <span className="number">12,000 PSL</span>
-        </ContentTCardBottomStyles>
+          <NumberCardBottomStyles secondary={props.secondary} fontSize="22px">
+            12,000 PSL
+          </NumberCardBottomStyles>
+        </ContentCardBottomStyles>
       </ContentCardStyle>
     </StylesCard>
   );

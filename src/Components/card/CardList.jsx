@@ -12,7 +12,7 @@ const StylesCardList = styled.div`
 const CardList = () => {
   return (
     <StylesCardList>
-      <Card />
+      <Card secondary={true} />
       <Card />
       <Card />
       <Card />
