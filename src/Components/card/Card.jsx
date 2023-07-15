@@ -62,29 +62,11 @@ const ContentCardBottomStyles = styled.div`
   display: flex;
   justify-content: space-between;
   .title {
-    color: #000000;
+    color: ${(props) => props.theme.colors.blue};
     font-family: "Poppins", sans-serif;
     font-weight: 500px;
     font-size: 18px;
   }
-  /* .number {
-    background: linear-gradient(
-      86.88deg,
-      #7d6aff 1.38%,
-      #ffb86c 64.35%,
-      #fc2872 119.91%
-    );
-    font-weight: 700;
-    font-style: 18px;
-    font-family: "Poppins", sans-serif;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    ${(props) =>
-    props.secondary &&
-    css`
-      background: linear-gradient(86.88deg, #20e3b2, #2cccff);
-    `};
-  } */
 `;
 const NumberCardBottomStyles = styled.span`
   font-weight: 700;
